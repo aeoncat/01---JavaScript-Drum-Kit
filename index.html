@@ -74,7 +74,16 @@ function removeTransition(e) {
   if (e.propertyName !== 'transform') return;
   this.classList.remove('playing');
   console.log(e.propertyName);
+
 }
+document.querySelectorAll(".key").forEach(function(ele){
+  ele.addEventListener('click', function(e){
+    var dataKey = this.dataset.key;
+    document.querySelector("audio[data-key='"+dataKey +"']").play();
+  this.classList.add('playing');
+});
+})
+
 
 const keys = document.querySelectorAll('.key');
 keys.forEach(key => key.addEventListener('transitionend', removeTransition));
